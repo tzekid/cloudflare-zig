@@ -9,7 +9,7 @@ A small, dependency-free Zig client for the Cloudflare v4 API. It exposes:
 - Browser Run Quick Actions and HTTP session lifecycle control, including an
   explicit Kitesurf beta engine selection.
 
-The package targets Zig 0.16 and is pre-1.0. Its current scope is deliberately
+The package targets Zig 0.17.0 and is pre-1.0. Its current scope is deliberately
 limited to proven Cloudio callers; additions should follow real use cases.
 
 ## Install
@@ -102,8 +102,9 @@ opt-in live verification command.
 zig build test
 ```
 
-The canonical source lives under `packages/cloudflare` in the Cloudio
-monorepo. This repository is a one-way, history-preserving mirror; changes are
-made in the monorepo and published to `master`.
+This repository is the canonical source for `cloudflare-zig`. Make library
+changes here and run `zig build test`. Cloudio consumes an exact commit as a
+Git submodule under `vendor/cloudflare`; update that pin in Cloudio after the
+library change is committed here.
 
 Licensed under MIT. See `LICENSE`.
