@@ -8,20 +8,12 @@ dependency-free HTTP library:
 - browser session creation, listing, lookup, and closure;
 - target listing and creation within a session.
 
-Kitesurf was announced on August 6, 2026 as a beta browser engine built for
-agent workloads. It runs in Workers/V8 isolates and is not Chromium. Cloudflare
-describes it as ephemeral, isolated, and efficient for compatible one-shot
-rendering and extraction work, but not yet a full-featured or pixel-perfect
-browser. Video, WebGL, bot-challenge handshakes that depend on real TLS browser
-fingerprints, and long-lived authenticated state are specifically unsuitable.
-Kitesurf implements a changing subset of CDP.
+Kitesurf is Cloudflare's beta browser engine for short rendering and extraction
+work. It has a different feature set from Chromium. Read the
+[official Kitesurf guide](https://developers.cloudflare.com/browser-run/kitesurf/)
+for current capabilities, limitations, and account limits.
 
-Cloudflare's [Kitesurf announcement](https://blog.cloudflare.com/kitesurf/)
-documents the new `/browser-run` path and `browser=kitesurf` query parameter.
-As of August 7, 2026, the general [API reference](https://developers.cloudflare.com/api/resources/browser_rendering/)
-and most [Quick Action documentation](https://developers.cloudflare.com/browser-run/quick-actions/)
-still publish the older `/browser-rendering` paths and do not expose Kitesurf
-in their generated schemas. The library therefore keeps both choices explicit:
+The library keeps both engine choices explicit:
 
 ```zig
 const kitesurf = try client.browserRun(account_id, .kitesurf);
